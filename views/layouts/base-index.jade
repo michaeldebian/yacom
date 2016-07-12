@@ -1,0 +1,23 @@
+extends ../layouts/admin
+
+block css
+  link(href='/bower_components/datatables.net-bs/css/dataTables.bootstrap.css', rel='stylesheet')
+
+block content-header
+  h1.pull-left #{title}
+  a.btn.btn-primary.pull-right(href="#{path}/new")
+    i.fa.fa-plus-circle.fa-lg
+    | Add #{itemTitle}
+
+block content
+  .col-lg-12
+    .main-box.clearfix
+      .main-box-body.clearfix
+        table.table#data-table
+          block table
+
+block scripts
+  script(src='/bower_components/datatables.net/js/jquery.dataTables.js')
+  script(src='/bower_components/datatables.net-bs/js/dataTables.bootstrap.js')
+  script(src='/bower_components/restfulizer/jquery.restfulizer.js')
+  script(src='/js/base-index.js')

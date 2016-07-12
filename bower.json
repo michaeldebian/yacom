@@ -1,0 +1,34 @@
+{
+  "name": "yacom",
+  "description": "Yet Another COnfigurations Manager",
+  "main": "app.js",
+  "authors": [
+    "Alvaro Muhlethaler <amuhlethaler@vairix.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "yacom",
+    "config"
+  ],
+  "homepage": "https://github.com/VAIRIX/yacom",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ace-builds": "^1.2.3",
+    "toastr": "^2.1.2",
+    "clipboard": "^1.5.10",
+    "datatables.net": "^1.10.11",
+    "restfulizer": "*",
+    "validator-js": "^5.2.0",
+    "datatables.net-bs": "^1.10.12",
+    "bootstrap": "^3.3.6",
+    "nanoscroller": "^0.8.7",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}

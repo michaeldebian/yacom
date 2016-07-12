@@ -1,0 +1,15 @@
+extends ../layouts/admin.jade
+
+block vars
+  - var title = 'Page not found'
+  - var contentHeader = false
+
+block content
+  .col-lg-12
+    #error-box
+      .row
+        .col-xs-12
+          #error-box-inner
+            img(src='/cube/img/error-404-v2.png')
+          h1 Error 404
+          p Page not found

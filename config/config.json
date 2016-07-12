@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": null,
+    "database": "yacom_dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": null,
+    "database": "yacom_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": null,
+    "database": "yacom",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

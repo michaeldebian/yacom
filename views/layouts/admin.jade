@@ -1,0 +1,86 @@
+doctype html
+html
+  head
+    block vars
+      - var title = 'YACOM'
+
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    block meta
+
+    block title
+      title #{title} - YACOM
+
+    link(rel='stylesheet', type='text/css', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href='/bower_components/font-awesome/css/font-awesome.css')
+    link(rel='stylesheet', type='text/css', href='/cube/css/compiled/theme_styles.css')
+    link(rel='stylesheet', type='text/css', href='/css/admin.css')
+    link(href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300', rel='stylesheet', type='text/css')
+    block css
+
+  body.theme-whbl.fixed-header.fixed-footer.fixed-leftmenu
+    #theme-wrapper
+      header#header-navbar.navbar
+        .container
+          a#logo.navbar-brand(href='/servers')
+            span.brand YACOM
+            //img.normal-logo.logo-white(src='/cube/img/logo.png', alt='')
+            //img.small-logo.hidden-xs.hidden-sm.hidden(src='/cube/img/logo-small.png', alt='')
+          .clearfix
+            button.navbar-toggle(data-target='.navbar-ex1-collapse', data-toggle='collapse', type='button')
+              span.sr-only Toggle navigation
+              span.fa.fa-bars
+            #header-nav.nav-no-collapse.pull-right
+              ul.nav.navbar-nav.pull-right
+                li.dropdown.profile-dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.hidden-xs= currentUser.getFullName()
+                    b.caret
+                  ul.dropdown-menu.dropdown-menu-right
+                    li
+                      a(href='/logout')
+                        i.fa.fa-power-off
+                        | Logout
+
+      #page-wrapper.container
+        .row
+          #nav-col
+            section#col-left.col-left-nano
+              #col-left-inner.col-left-nano-content
+                #sidebar-nav.collapse.navbar-collapse.navbar-ex1-collapse
+                  ul.nav.nav-pills.nav-stacked
+                    li.nav-header.nav-header-first.hidden-sm.hidden-xs
+                      | Pages
+
+                    each page in pages
+                      if !page.admin || currentUser.admin
+                        li(class={active: page.path === currentPage})
+                          a(href=page.path)
+                            i.fa(class='fa-#{page.icon}')
+                            span= page.name
+
+          #content-wrapper
+            .row
+              .col-lg-12
+                if contentHeader !== false
+                  #content-header.clearfix
+                    p= locals.contentHeader
+                    block content-header
+
+            .row
+              block content
+
+            footer#footer-bar.row
+              p#footer-copyright.col-xs-12
+                | Copyright (C) #{new Date().getFullYear()} YACOM
+
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/restfulizer/jquery.restfulizer.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js')
+    script(src='/cube/js/scripts.js')
+    script(src='/cube/js/pace.min.js')
+    script(src='/js/admin.js')
+
+    block scripts

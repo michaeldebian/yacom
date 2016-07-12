@@ -1,0 +1,34 @@
+extends ../layouts/admin
+
+block title
+  title #{title} - YACOM
+
+block css
+  link(href='/bower_components/toastr/toastr.css', rel='stylesheet')
+  link(href='/bower_components/datatables.net-bs/css/datatables.bootstrap.css', rel='stylesheet')
+
+block content-header
+  h1.pull-left=title
+  #add-taxonomy.pull-right.form-inline
+    .input-group
+      input.form-control(placeholder='Name')
+      span.input-group-btn
+        button.btn.btn-primary Add
+
+block content
+  #taxonomies-list.col-lg-12(data-items=items, data-type=type)
+    .main-box
+      .main-box-body.clearfix
+        table.item-table.table
+          thead
+            tr
+              th ID
+              th Name
+              th Actions
+          tbody
+
+block scripts
+  script(src='/bower_components/datatables.net/js/jquery.dataTables.js')
+  script(src='/bower_components/datatables.net-bs/js/datatables.bootstrap.js')
+  script(src='/bower_components/toastr/toastr.js')
+  script(src='/js/taxonomies/taxonomies.js')

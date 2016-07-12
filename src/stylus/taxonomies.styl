@@ -1,0 +1,21 @@
+@require 'shared/base'
+@require 'shared/datatable'
+
+#taxonomies-list
+  .item-table
+    tr
+      transition 0.3s opacity ease
+      color black
+
+      button
+        transition 0.3s opacity ease
+        opacity 1
+        border 0
+        background-color white
+        font-size 25px
+
+      &.saving
+        opacity 0.5
+
+        button
+          opacity 0

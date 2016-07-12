@@ -1,0 +1,50 @@
+extends ../layouts/admin
+
+block title
+  title #{server.serverName} script's execution - YACOM
+
+block content-header
+  h1.pull-left #{server.serverName} script's execution
+
+  a.btn.btn-primary.pull-right(href='/servers/#{server.id}')
+    i.fa.fa-eye.fa-lg
+    | Server data
+
+block css
+  link(href='/css/execution.css', rel='stylesheet')
+
+block content
+  if server.currentExecution
+    .main-box#execution-details
+      .main-box-body.clearfix
+        table.table
+          thead
+            tr
+              th Status
+              th Stage
+              th Exit code
+              th Start date
+              th Last communication
+          tbody
+            tr
+              td= server.getStatus()
+              td= server.currentExecution.stage
+              td= server.currentExecution.exitCode
+              td= moment(server.currentExecution.createdAt).format('MM/DD/YYYY hh:mm:ss')
+              td= moment(server.currentExecution.createdAt).format('MM/DD/YYYY hh:mm:ss')
+
+    .main-box
+      .main-box-header.clearfix
+        h2.pull-left Log
+
+        a.btn.btn-default.pull-right(href='/servers/#{server.id}/execution/log', title='Download logs')
+          i.fa.fa-download
+          | &nbsp; Download
+
+      .main-box-body.clearfix
+        pre= server.currentExecution.log
+  else
+    #no-execution
+      h1 This server script has never been executed
+      h3 You can run it with:
+      pre= server.scriptCommand

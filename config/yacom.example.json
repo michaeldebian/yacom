@@ -1,0 +1,72 @@
+{
+  "development": {
+    "baseUrl": "http://localhost:8080",
+    "databases": {
+      "development": {
+        "hosts": ["localhost"],
+        "cassandra": {
+          "username": "cassandra",
+          "password": "cassandra"
+        },
+        "ssh": {
+          "username": "aguz"
+        }
+      },
+      "qa": {
+        "hosts": ["localhost"],
+        "cassandra": {
+          "username": "cassandra",
+          "password": "cassandra"
+        },
+        "ssh": {
+          "username": "aguz"
+        }
+      },
+      "production": {
+        "hosts": ["localhost"],
+        "cassandra": {
+          "username": "cassandra",
+          "password": "cassandra"
+        },
+        "ssh": {
+          "username": "deployer"
+        }
+      }
+    }
+  },
+  "production": {
+    "baseUrl": "http://localhost:8080",
+    "databases": {
+      "development": {
+        "hosts": ["localhost"],
+        "cassandra": {
+          "username": "cassandra",
+          "password": "cassandra"
+        },
+        "ssh": {
+          "username": "aguz"
+        }
+      },
+      "qa": {
+        "hosts": ["localhost"],
+        "cassandra": {
+          "username": "cassandra",
+          "password": "cassandra"
+        },
+        "ssh": {
+          "username": "aguz"
+        }
+      },
+      "production": {
+        "hosts": ["localhost"],
+        "cassandra": {
+          "username": "cassandra",
+          "password": "cassandra"
+        },
+        "ssh": {
+          "username": "deployer"
+        }
+      }
+    }
+  }
+}

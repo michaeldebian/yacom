@@ -1,0 +1,24 @@
+extends ../layouts/base-index
+
+block vars
+  - var title = 'Users'
+  - var itemTitle = 'user'
+  - var path = '/users'
+
+block table
+  thead
+    tr
+      th Name
+      th Surname
+      th Email
+      th Admin
+      th.datatable-nosort Actions
+  tbody
+    each item in users
+      tr
+        td= item.name
+        td= item.surname
+        td= item.email
+        td= item.admin ? 'Yes' : 'No'
+        td
+          include ../partials/index-actions

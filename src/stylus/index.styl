@@ -1,0 +1,39 @@
+@import 'shared/base'
+
+enter-anim-duration = .4s
+
+enter-animation(order)
+  opacity 0
+  transform translate3d(0, 80%, 0)
+  animation enter-anim-duration enter-anim ease (order * enter-anim-duration)
+  animation-fill-mode forwards
+
+header
+  padding-top 110px
+  text-align center
+  max-width 500px
+  margin 0 auto
+
+  h1
+    font-size 70px
+    font-weight 400
+    margin-bottom 0
+    enter-animation 0
+
+  p
+    font-weight 100
+    enter-animation 1
+
+#create-script-btn
+  margin-top 10px
+  enter-animation 2
+
+
+@keyframes enter-anim
+  0%
+    transform translate3d(0, 80%, 0)
+    opacity 0
+
+  100%
+    transform translate3d(0, 0, 0)
+    opacity 1

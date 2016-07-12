@@ -1,0 +1,109 @@
+extends ../layouts/admin
+
+block meta
+  meta(name='yacom:base-url', content=baseUrl)
+
+block title
+  title #{locals.server ? locals.server.serverName : 'Create server'} - YACOM
+
+block css
+  link(rel='stylesheet', href='/css/servers.css')
+  link(rel='stylesheet', href='/bower_components/toastr/toastr.css')
+
+block content-header
+  if server
+    h1.pull-left Server #{server.serverName}
+    a.btn.btn-primary.pull-right(href='/servers/#{server.id}/execution')
+      i.fa.fa-eye.fa-lg
+      | View execution
+  else
+    h1 Add server
+
+block content
+  #script-options.col-lg-6(data-server=server)
+    .main-box
+      form.main-box-body.clearfix
+
+        .form-group
+          label(for='server-name') Server Name
+          input#server-name.form-control(data-field='serverName', required)
+
+        .form-group#ip-address-group
+          label(for='ip-address') IP Address
+          input#ip-address.form-control(data-field='ipAddress', required)
+          p.help-block Invalid IP Address
+
+        .row
+          each taxonomyType in taxonomyTypes
+            .form-group.col-lg-3
+              label(for=taxonomyType.name)= taxonomyType.title
+              select.form-control(id=taxonomyType.name, data-field=taxonomyType.name)
+                option(value='') No #{taxonomyType.title}
+                each taxonomy in taxonomies[taxonomyType.name]
+                  option(value=taxonomy.id)= taxonomy.name
+
+        .form-group
+          label(for='os-version') OS
+          select#os-version.form-control(required, data-field='osVersion')
+            option(value=1) Ubuntu/Debian
+            option(value=2) CentOS/Redhat
+            option(value=3) Suse
+
+        .form-group
+          label(for='deployer-user') Deployer user
+          input#deployer-user.form-control(require, data-field='deployerUser', value='deployer')
+
+        .form-group
+          label(for='os-packages') Packages to install (line separated)
+          textarea#os-packages.form-control(placeholder='OS Packages', rows=3, data-field='osPackages')
+
+        .form-group
+          label(for='deployment-path') Deployment path
+          input#deployment-path.form-control(type='text', data-field='deploymentPath')
+
+        .form-group
+          label(for='git-url') Git URL
+          input#git-url.form-control(data-field='gitUrl')
+
+        .form-group
+          label(for='developer-packages') Developer Packages
+          #developer-packages.ace-round
+
+        - var hasEmail = locals.server && server.email && server.email.length > 0
+
+        .form-group
+          .checkbox-nice
+            input#notify-check(type="checkbox", checked=hasEmail)
+            label(for='notify-check') Notify me
+
+        .form-group#email.toggeable(class={visible: hasEmail})
+          label(for='Email') Email
+          input.form-control(type='email', data-field='email')
+
+        button#gen-btn.pull-right.btn.btn-primary Save
+
+  #script-info.col-lg-6
+    .main-box
+      .main-box-body.clearfix
+        h2= locals.server ? 'Yacom will send the script as:' : 'Script preview:'
+        #script-preview.ace-round
+
+        if locals.server
+          #ssh-key
+            h2 Allow server to access your git repository
+            textarea(spellcheck='false', readonly)= server.pubKey
+            button.btn.btn-primary#ssh-key-copy-btn(data-clipboard-target='#ssh-key textarea')
+              | Copy
+
+          #run-on-server
+            h2 Run on server:
+            pre(data-field='scriptCommand', data-field-inner='true')
+
+  script(src='/bower_components/jquery/dist/jquery.js')
+  script(src='/bower_components/ace-builds/src-min-noconflict/ace.js')
+  script(src='/bower_components/toastr/toastr.js')
+  script(src='/bower_components/clipboard/dist/clipboard.js')
+  script(src='/bower_components/validator-js/validator.js')
+  script(src='/js/script-gen.js')
+  script(src='/js/servers/item.js')
+

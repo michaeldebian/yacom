@@ -1,0 +1,91 @@
+extends ../layouts/admin
+
+block vars
+  - var title = 'Cassandra Admin'
+
+block content-header
+  h1 Cassandra admin
+
+block css
+  link(href='/bower_components/toastr/toastr.css', rel='stylesheet')
+  link(href='/css/cassandra.css', rel='stylesheet')
+
+block content
+
+  .row
+    .col-lg-6.col-md-offset-3
+      .form-group
+        label(for='action') What do you want to do?
+        select.form-control#action
+          option(value=-1) Nothing
+          option(value='keyspace') Create a keyspace
+          option(value='user') Create a user
+          option(value='assign-u2ks') Assign user to keyspace
+          option(value='run-cql') Update schema
+          option(value='promote-schema') Promote schema
+
+      #keyspace-form.action-form
+        .form-groups
+          .form-group
+            label(for='keyspace-name') Keyspace name
+            input.form-control#keyspace-name
+
+        button.btn.btn-default.pull-left#add-user Add user
+        button.btn.btn-primary.pull-right#create-keyspace Create keyspace
+
+      #user-form.action-form
+        .form-group
+          label(for='username') Username
+          input.form-control#username
+
+        .form-group
+          label(for='password') Password
+          input.form-control#password(type="password")
+
+        button.btn.btn-primary.pull-right#create-user Create user
+
+      #assign-u2ks-form.action-form
+        .form-group
+          label(for='u2ks-username') Username
+          input.form-control#u2ks-username
+
+        .form-group
+          label(for='u2ks-keyspace') Keyspace
+          input.form-control#u2ks-keyspace
+
+        button.btn.btn-primary.pull-right#assign-u2ks Assign user
+
+      #run-cql-form.action-form
+        #cql-code.ace-round
+
+        .row.pull-left
+          .form-group.col-lg-6
+            input#rcql-username.form-control(placeholder='Username')
+          .form-group.col-lg-6
+            input#rcql-password.form-control(placeholder='Password', type='password')
+
+        button.btn.btn-primary.pull-right#run-cql Run
+
+      #promote-schema-form.action-form
+        .form-group
+          label(for='promote-schema-keyspace') Keyspace
+          input.form-control#promote-schema-keyspace
+        .row
+          .form-group.col-lg-6
+            label(for='current-env') From
+            select#current-env.form-control
+              option(value='development') Development
+              option(value='qa') QA
+          .form-group.col-lg-6
+            label(for='to-env') To
+            select#to-env.form-control(disabled)
+              option(value='qa') QA
+              option(value='production') Production
+
+        button.btn.btn-primary.pull-right#promote-schema Promote
+
+
+block scripts
+  script(src='/bower_components/toastr/toastr.js')
+  script(src='/bower_components/ace-builds/src-min-noconflict/ace.js')
+  script(src='/js/databases/cassandra.js')

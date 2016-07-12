@@ -1,0 +1,33 @@
+extends ../layouts/base-index
+
+block vars
+  - var title = 'Servers'
+  - var itemTitle = 'server'
+  - var path = '/servers'
+
+block table
+  thead
+    tr
+      th Name
+      th IP Address
+      th Status
+      th Stage
+      th Group
+      th App
+      th Location
+      th Environment
+      th.datatable-nosort Actions
+  tbody
+    each item in servers
+      tr
+        td= item.serverName
+        td= item.ipAddress
+        td= item.getStatus()
+        td= item.currentExecution && item.currentExecution.stage
+        td= item.group && item.group.name
+        td= item.app && item.app.name
+        td= item.location && item.location.name
+        td= item.environment && item.environment.name
+        td
+          include ../partials/index-actions
+
