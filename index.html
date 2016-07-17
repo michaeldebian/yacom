@@ -4,39 +4,51 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Yacom by michaeldebian</title>
-
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
-    <div class="wrapper">
+
       <header>
         <h1>Yacom</h1>
         <p>Yacom Openstack Alternative</p>
-
-        <p class="view"><a href="https://github.com/michaeldebian/yacom">View the Project on GitHub <small>michaeldebian/yacom</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/michaeldebian/yacom/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/michaeldebian/yacom/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/michaeldebian/yacom">View On <strong>GitHub</strong></a></li>
-        </ul>
       </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/michaeldebian/yacom" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/michaeldebian/yacom/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/michaeldebian/yacom/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
       <section>
-        <pre><code>                        ** Yacom (Yet Another Container Openstack Manager) **
+        <pre><code>                    ##      Yacom (Yet Another Container Openstack Manager)
 </code></pre>
 
-<p>The purpose of YACOM is to provide an alternative to Openstack, but in a much simplified manner. YACOM seeks to integrate with KVM and the container technology in an API format. The vision is to allow the average system administrator/Devops engineer to have a ready to work platform in the matter of minutes.</p>
+<p>The purpose of YACOM is to provide an alternative to Openstack, but in a much simplified manner. YACOM seeks to integrate with KVM (building a swagger API and a pre-built Centos/Ubuntu image). The vision is to allow the average system administrator/Devops engineer to have a ready to work  self provisioning platform in a matter of minutes.</p>
 
-<pre><code>                            ** What will YACOM's contain? **
+<pre><code>                      ##        What will YACOM's contain? 
 </code></pre>
 
 <ul>
+<li>Self Serve platform to create servers (Something like Digital Ocean for the enterprise)</li>
 <li>Login platform for users (developers to create servers), for admins to change resource settings.</li>
 <li>Integration with CI/CD technologies facilitating a ready to go solution.</li>
 <li>SSH into multiple machines in parallel.</li>
@@ -55,11 +67,11 @@
 </ul>
       </section>
       <footer>
-        <p>This project is maintained by <a href="https://github.com/michaeldebian">michaeldebian</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p>Project maintained by <a href="https://github.com/michaeldebian">michaeldebian</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
