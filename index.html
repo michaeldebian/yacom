@@ -30,28 +30,37 @@
         <pre><code>                    Yacom (Yet Another Container Orchestrator Manager)
 </code></pre>
 
-<p>The purpose of YACOM is to provide an alternative to Openstack, but in a much simplified manner. YACOM seeks to integrate with KVM (building a swagger API and a pre-built Centos/Ubuntu image in a self contained manner). The vision is to allow the average system administrator/Devops engineer to have a ready to work virtualized platform alternative to vmware as well as an easy to use container management with kubernetes.</p>
+<p>The purpose of YACOM is to provide a web based easy to build docker images online. The vision is to allow a single point of management for DEVOPS/Software Engineers which will allow them to add/remove Docker instances on the fly, allowing developers to focus 100% on the code, also, it will add/remove instances to/from load balancers, in this case we will use dedicated instances running nginx.</p>
 
 <pre><code>                             YACOM Architecture
 </code></pre>
 
 <ul>
-<li>Proxy server (User's aka user's login portal)</li>
-<li>API swagger for compute nodes/san for node/container provisioning</li>
+<li>Proxy server (nginx)</li>
+<li>Rsync image repo with docker nodes</li>
+<li>Easy to build images on demand</li>
 <li>Reporting capabilities for management per charge code (department)</li>
+<li>Reporting for admins for resource utilization (pool management)</li>
 <li>
-<p>Reporting for admins for resource utilization (pool management)</p>
+<p>Cassandra based</p>
 
-<pre><code>                     What will YACOM's contain? 
+<pre><code>                         Technologies
 </code></pre>
 </li>
+<li><p>SmartOS</p></li>
 </ul>
+
+<h2>
+<a id="--project-fifo" class="anchor" href="#--project-fifo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>- Project Fifo</h2>
+
+<pre><code>                         What will YACOM's contain? 
+</code></pre>
 
 <p>COREOS-KUBERNETES</p>
 
 <ul>
 <li>Spin up containers.</li>
-<li>Allow to add/remove nodes on the fly.</li>
+<li>Allow to add/remove nodes on ththe average system administrator/Devops engineer to have a ready to work virtualized platform alternative to vmware as well as an easy to use container management with kubernetes.e fly.</li>
 <li>Allow to create multiple repositories.</li>
 <li>Use Coreos's Rkt for security.</li>
 <li>Generate security keys.</li>
