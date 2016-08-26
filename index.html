@@ -30,7 +30,7 @@
         <pre><code>                    Yacom (Yet Another Container Orchestrator Manager)
 </code></pre>
 
-<p>The purpose of YACOM is to provide a web based easy to build docker images online. The vision is to allow a single point of management for DEVOPS/Software Engineers which will allow them to add/remove Docker instances on the fly, allowing developers to focus 100% on the code, also, it will add/remove instances to/from load balancers, in this case we will use dedicated instances running nginx.</p>
+<p>The purpose of YACOM is to provide a web based interface on the developers laptop. It will allow developers to  easily build docker images (CentOS, Ubuntu and SmartOS), create/destroy instances, deploy in parallel to hundreds of servers, add a preconfigured nginx proxy server for your ruby,nodejs application . The vision is to allow a single point of management for DEVOPS/Software Engineers which will allow them to add/remove Docker instances on the fly, allowing developers to focus 100% on the code, also, it will add/remove instances to/from load balancers, in this case we will use dedicated instances running nginx.</p>
 
 <pre><code>                             YACOM Architecture
 </code></pre>
@@ -47,29 +47,27 @@
 <pre><code>                         Technologies
 </code></pre>
 </li>
-<li><p>SmartOS</p></li>
 </ul>
 
-<h2>
-<a id="--project-fifo" class="anchor" href="#--project-fifo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>- Project Fifo</h2>
-
-<pre><code>                         What will YACOM's contain? 
-</code></pre>
-
-<p>COREOS-KUBERNETES</p>
+<p>Backend</p>
 
 <ul>
-<li>Spin up containers.</li>
-<li>Allow to add/remove nodes on ththe average system administrator/Devops engineer to have a ready to work virtualized platform alternative to vmware as well as an easy to use container management with kubernetes.e fly.</li>
-<li>Allow to create multiple repositories.</li>
-<li>Use Coreos's Rkt for security.</li>
+<li>SmartOS</li>
+<li>Vagrant</li>
+<li><p>VirtualBox</p></li>
+<li><p>Nginx</p></li>
+<li>Node</li>
+<li>Bittorrent</li>
+<li>Github</li>
+<li>
+<p>Electron (frontend)</p>
+
+<pre><code>                     What will YACOM's contain? 
+</code></pre>
+</li>
+<li><p>Spin up/down containers.</p></li>
 <li>Generate security keys.</li>
 <li>Edit/save YAML files online.</li>
-<li>Launching, exposing, and killing containers.</li>
-<li>Integration with AWS, GC &amp; Hardware.
-penstack
-Developers</li>
-<li>Self Serve platform to create servers (Something like Digital Ocean for the enterprise)</li>
 <li>Support for running different command in languages such us shell, powershell, node, python, ruby, java, among others.</li>
 <li>Be able to predefined actions with a push of a button (restart apps, restart process, perform an action if process is not running).</li>
 </ul>
